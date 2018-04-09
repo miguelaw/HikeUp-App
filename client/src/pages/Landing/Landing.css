@@ -1,0 +1,22 @@
+.home{
+	height:80vh;
+	background-color: rgba(237, 239, 243, 0.5);
+	background-repeat: no-repeat;
+	position: relative;
+	padding-top: -100px;
+	border: 3px solid #fff
+
+}
+.home ::after{
+	height:80vh;
+	background-image: url(http://snowbrains.com/wp-content/uploads/2014/10/The-Maroon-Bells-National-Forest.jpg);
+	background-position: center;
+	opacity: .39;
+	position: absolute;
+	top:0px;
+	left: 0px;
+	width:100%;
+	height:100%;
+	z-index:-1;
+
+}
