@@ -1,29 +1,52 @@
 import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+import Events from "./pages/Events";
+import CreateEvents from "./pages/CreateEvents";
+import Detail from "./pages/Detail";
+import Mountains from "./pages/Mountains";
+import MountainsDetail from "./pages/MountainsDetail";
 import NoMatch from "./pages/NoMatch";
-import Home from "./pages/Home"
-import Dashboard from "./pages/Dashboard"
-import List from "./pages/List"
-import Success from "./pages/Success"
-import Landing from "./pages/Landing"
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
-import Nav from "./components/Nav";
-import Footer from "./components/Footer";
+// import Nav from "./components/Nav";
 
-const App = () =>
+//Auth
+import Navigation from './components/Navigation';
+import LandingPage from './components/Landing';
+import SignUpPage from './components/SignUp';
+import SignInPage from './components/SignIn';
+import PasswordForgetPage from './components/PasswordForget';
+import HomePage from './components/Home';
+import AccountPage from './components/Account';
+import withAuthentication from './components/Session/withAuthentication';
 
-<Router>
-	<div>
-		<Nav />
-		<Switch>
-			<Route exact path="/" component={Home} />
-			<Route exact path="/dashboard" component={Dashboard} />
-			<Route exact path="/users/:id" component={List} />
-			<Route exact path="/success" component={Success} />
-			<Route exact path="/landing" component={Landing} />
-			<Route component={NoMatch} />
-		</Switch>
-		<Footer />
-	</div>
-</Router>;
+const App = () => (
+  <Router>
+    <div>
+      <Navigation />
+      <Switch>
+        <Route exact path="/" component={LandingPage} />
+        <Route exact path="/signup" component={SignUpPage} />
+        <Route exact path="/signin" component={SignInPage} />
+        <Route exact path="/pw-forget" component={PasswordForgetPage} />
+        <Route exact path="/home" component={HomePage} />
+        <Route exact path="/account" component={AccountPage} />
 
-export default App;
+        <Route exact path="/events" component={Events} />
+        <Route exact path="/create-events" component={CreateEvents} />
+        <Route exact path="/events/:id" component={Detail} />
+        <Route exact path="/mountains" component={Mountains} />
+        <Route exact path="/mountains/:id" component={MountainsDetail} />
+        <Route component={NoMatch} />
+      </Switch>
+    </div>
+  </Router>
+);
+
+// export default App;
+
+export default withAuthentication(App);
+
+
+
+
+

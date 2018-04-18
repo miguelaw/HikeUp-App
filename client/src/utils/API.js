@@ -1,48 +1,37 @@
 import axios from "axios";
-const apiURL = window.location.origin + '/api';
+
 export default {
-	//Get Items from Amazon API
+  // Gets all books
+  getEvents: function() {
+    return axios.get("/api/events");
+  },
+  // Gets the book with the given id
+  getEvent: function(id) {
+    return axios.get("/api/events/" + id);
+  },
+  // Deletes the book with the given id
+  deleteEvent: function(id) {
+    return axios.delete("/api/events/" + id);
+  },
+  // Saves a book to the database
+  saveEvent: function(eventData) {
+    return axios.post("/api/events", eventData);
+  },
 
-	getItems: function(term){
-		
-		return axios.get(apiURL+ "/aws?term=" + term.term)
-	},
-	
-	findUser: function(name){
-		console.log(name, "hi");
-		return axios.get(apiURL+ "/db/users?userName=" + name);
-	},
-	
-	getList: function(id){
-		console.log("HI",id);
-		return axios.get(apiURL+ "/db/list/" + id);
-	},
-	
-	browse: function(){
-		console.log("HI");
-		return axios.get(apiURL+ "/db/lists");
-	},
-	
-	saveItems: function(itemsData) {
-		console.log(itemsData);
-
-		return axios.post(apiURL+ "/db/list", itemsData);
-	},
-	
-		
-	getNotes: (data) => {
-		console.log(data);
-		return axios.get(apiURL+ "/db/notes?id=" + data.id);
-	},
-		
-	addNote: function(note) {
-		console.log(note);
-
-		return axios.post(apiURL+ "/db/note", note);
-	},
-	
-	
-	
-	
-	
+    // Gets all books
+    getMountains: function() {
+      return axios.get("/api/mountains");
+    },
+    // Gets the book with the given id
+    getMountain: function(id) {
+      return axios.get("/api/mountains/" + id);
+    },
+    // Deletes the book with the given id
+    deleteMountain: function(id) {
+      return axios.delete("/api/mountains/" + id);
+    },
+    // Saves a book to the database
+    saveMountain: function(mountainData) {
+      return axios.post("/api/mountains", mountainData);
+    }
 };

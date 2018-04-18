@@ -1,7 +1,9 @@
 const router = require("express").Router();
-const dbRoutes = require("./dbRoutes");
+const eventRoutes = require("./events");
+const mountainsRoutes = require("./mountains");
 
-// AWS routes
-router.use("/db", dbRoutes);
+// Book routes
+router.use("/events", eventRoutes);
+router.use("/mountains", mountainsRoutes);
 
 module.exports = router;
