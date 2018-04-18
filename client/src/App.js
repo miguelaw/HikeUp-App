@@ -1,4 +1,5 @@
 import React from "react";
+import './App.css';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Events from "./pages/Events";
@@ -8,6 +9,7 @@ import Mountains from "./pages/Mountains";
 import MountainsDetail from "./pages/MountainsDetail";
 import NoMatch from "./pages/NoMatch";
 import ChatPage from "./pages/ChatPage";
+import Footer from './components/Footer';
 
 //Auth
 import Navigation from './components/Navigation';
@@ -39,6 +41,7 @@ const App = () => (
         <Route exact path="/chatpage" component={ChatPage} />
         <Route component={NoMatch} />
       </Switch>
+      <Footer />
     </div>
   </Router>
 );

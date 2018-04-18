@@ -8,6 +8,7 @@ import {PasswordForgetLink} from "../PasswordForget/index";
 import { SignUpLink } from '../SignUp/index';
 import { Link } from 'react-router-dom';
 import * as routes from '../../constants/routes';
+
 import "./index.css";
 
 
@@ -23,10 +24,10 @@ const Navigation = () =>
 
 const NavigationAuth = () =>
 
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse shadow">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Hike Up</a>
+      <a class="navbar-logo left" href="/"><img className="logo" src= { require('./mountains-logo.png') } />Hike Up</a>
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="#">Home</a></li>
@@ -43,10 +44,10 @@ const NavigationAuth = () =>
 
 const NavigationNonAuth = () =>
  
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse shadow">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Hike Up</a>
+      <a class="navbar-logo left" href="/"><img className="logo" src= { require('./mountains-logo.png') } /></a>
     </div>
     <ul class="nav navbar-nav">
     </ul>
