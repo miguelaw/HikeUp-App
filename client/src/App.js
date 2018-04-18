@@ -7,7 +7,7 @@ import Detail from "./pages/Detail";
 import Mountains from "./pages/Mountains";
 import MountainsDetail from "./pages/MountainsDetail";
 import NoMatch from "./pages/NoMatch";
-// import Nav from "./components/Nav";
+import ChatPage from "./pages/ChatPage";
 
 //Auth
 import Navigation from './components/Navigation';
@@ -36,6 +36,7 @@ const App = () => (
         <Route exact path="/events/:id" component={Detail} />
         <Route exact path="/mtsinfo" component={Mountains} />
         <Route exact path="/mtsinfo/:id" component={MountainsDetail} />
+        <Route exact path="/chatpage" component={ChatPage} />
         <Route component={NoMatch} />
       </Switch>
     </div>

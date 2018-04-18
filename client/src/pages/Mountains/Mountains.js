@@ -83,7 +83,7 @@ class Mountains extends Component {
                       </strong>
                       <Link to={"/mtsinfo/" + mtinfo._id}>More Details
                     </Link>
-                    <DeleteBtn onClick={() => this.deleteMtInfo(mtinfo._id)} />
+                    {/* <DeleteBtn onClick={() => this.deleteMtInfo(mtinfo._id)} /> */}
                   </ListItem>
                 ))}
               </List>

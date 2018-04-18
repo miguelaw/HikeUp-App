@@ -90,7 +90,7 @@ class CreateEvents extends Component {
         title: this.state.title,
         description: this.state.description,
         fourtennerSelected: this.state.fourtennerSelected,
-        date: this.state.date,
+        date: new Date(this.state.date),
         time: this.state.time,
         meetingPoint: this.state.meetingPoint
       })

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-
+import "./index.css";
 import { SignUpLink } from '../SignUp';
 import { PasswordForgetLink } from '../PasswordForget';
 import { auth } from '../../firebase';
@@ -65,25 +65,46 @@ class SignInForm extends Component {
       email === '';
 
     return (
-      <form onSubmit={this.onSubmit}>
-        <input
-          value={email}
-          onChange={event => this.setState(updateByPropertyName('email', event.target.value))}
-          type="text"
-          placeholder="Email Address"
-        />
-        <input
-          value={password}
-          onChange={event => this.setState(updateByPropertyName('password', event.target.value))}
-          type="password"
-          placeholder="Password"
-        />
-        <button disabled={isInvalid} type="submit">
-          Sign In
-        </button>
+     
+     
+      <form class="navbar-form navbar-right" role="form" onSubmit={this.onSubmit} id="signin">
 
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <input id="email" 
+            type="email" 
+            class="form-control" 
+            name="email" 
+            value={email}
+            onChange={event => this.setState(updateByPropertyName('email', event.target.value))} 
+            placeholder="Email Address"/>                                        
+        </div>
+
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                <input id="password" 
+                      type="password"
+                      class="form-control"
+                      name="password"
+                      value={password}
+                      onChange={event => this.setState(updateByPropertyName('password', event.target.value))}
+                      placeholder="Password"/>                                        
+            </div>
+    
+        <button 
+                disabled={isInvalid}
+                type="submit"
+                class="btn btn-primary">Login</button>
+
+        
         { error && <p>{error.message}</p> }
+        
+  
       </form>
+
+
+
+      
     );
   }
 }
@@ -91,5 +112,5 @@ class SignInForm extends Component {
 export default withRouter(SignInPage);
 
 export {
-  SignInForm,
+  SignInForm
 };

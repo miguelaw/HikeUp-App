@@ -6,8 +6,11 @@ import API from "../../utils/API";
 
 class Detail extends Component {
   state = {
-    event: {}
+    event: {},
+    date: new Date(),
   };
+
+ 
   // When this component mounts, grab the mountain with the _id of this.props.match.params.id
   // e.g. localhost:3000/mountains/599dcb67f0f16317844583fc
   componentDidMount() {

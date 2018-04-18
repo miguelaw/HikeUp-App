@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import "./index.css";
 import {
   Link,
   withRouter,
@@ -116,11 +117,11 @@ class SignUpForm extends Component {
 }
 
 const SignUpLink = () =>
-  <p>
-    Don't have an account?
+  <span id="signup">
+    Need an account?
     {' '}
     <Link to={routes.SIGN_UP}>Sign Up</Link>
-  </p>
+  </span>
 
 export default withRouter(SignUpPage);
 

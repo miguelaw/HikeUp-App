@@ -5,7 +5,7 @@ module.exports = {
   findAll: function(req, res) {
     db.Mtinfo
       .find(req.query)
-      .sort({ mtranges: -1 })
+      .sort({ mtranges: -1})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
