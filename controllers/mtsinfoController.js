@@ -3,32 +3,32 @@ const db = require("../models");
 // Defining methods for the mountainsController
 module.exports = {
   findAll: function(req, res) {
-    db.Event
+    db.Mtinfo
       .find(req.query)
-      .sort({ date: -1 })
+      .sort({ mtranges: -1 })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   findById: function(req, res) {
-    db.Event
+    db.Mtinfo
       .findById(req.params.id)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
-    db.Event
+    db.Mtinfo
       .create(req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   update: function(req, res) {
-    db.Event
+    db.Mtinfo
       .findOneAndUpdate({ _id: req.params.id }, req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   remove: function(req, res) {
-    db.Event
+    db.Mtinfo
       .findById({ _id: req.params.id })
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))

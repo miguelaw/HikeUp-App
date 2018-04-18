@@ -3,15 +3,16 @@ import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 import Jumbotron from "../../components/Jumbotron";
 import API from "../../utils/API";
+import ThumbnailCustom from "../../components/ThumbnailCustom";
 
 class MountainsDetail extends Component {
   state = {
     mountain: {}
   };
-  // When this component mounts, grab the book with the _id of this.props.match.params.id
-  // e.g. localhost:3000/books/599dcb67f0f16317844583fc
+  // When this component mounts, grab the mountain with the _id of this.props.match.params.id
+  // e.g. localhost:3000/mountains/599dcb67f0f16317844583fc
   componentDidMount() {
-    API.getMountain(this.props.match.params.id)
+    API.getMtInfo(this.props.match.params.id)
       .then(res => this.setState({ mountain: res.data }))
       .catch(err => console.log(err));
   }
@@ -23,7 +24,8 @@ class MountainsDetail extends Component {
           <Col size="md-12">
             <Jumbotron>
               <h1>
-                {this.state.mountain.mtranges} by {this.state.mountain.fourteeners} to  {this.state.mountain.fourteeners}
+                Mountain Range: {this.state.mountain.mtranges} <br  />
+                Fourteener: {this.state.mountain.fourteeners} 
               </h1>
             </Jumbotron>
           </Col>
@@ -31,20 +33,26 @@ class MountainsDetail extends Component {
         <Row>
           <Col size="md-10 md-offset-1">
             <article>
-              <h1>Details for the Event</h1>
+              <h1>Details for {this.state.mountain.mtranges} </h1>
               
-            <p>
-                <h3>{this.state.mountain.mtranges}</h3>
-                {this.state.mountain.fourteeners}
-                where: {this.state.mountain.fourteeners}
-                When: {this.state.mountain.date} at  {this.state.mountain.time} 
+            <p><br />
+                <h3> Mountain Range: {this.state.mountain.mtranges}</h3> 
+                <h3>Fourteener: {this.state.mountain.fourteeners} </h3>
+                <h3>Elevation: {this.state.mountain.elevation} </h3>
+                <h3>Latitude: {this.state.mountain.lat} Longitude: {this.state.mountain.lon} </h3>
+                <h3>Weather:  <a href={this.state.mountain.weather}  target="_blank">Click here to check the weather </a></h3>
               </p>
-            </article>
+              <ThumbnailCustom key={this.state.mountain._id}>
+                    
+                    <img src={this.state.mountain.picture} alt=""/>
+                    </ThumbnailCustom>
+           </article>
           </Col>
         </Row>
         <Row>
-          <Col size="md-2">
-            <Link to="/mountains">← Back to Mountain List</Link>
+          <Col size="md-4">
+          <br />
+            <Link to="/mtsinfo">← Back to Mountain List</Link>
           </Col>
         </Row>
       </Container>

@@ -9,45 +9,57 @@ import "../../components/DropdownBtn/DropdownBtn.css";
 
 
 class Mountains extends Component {
+
+
+
   state = {
-    mountains: [],
+    mtsinfo: [],
     mtranges: "",
-    fourteeners: ""
+    fourteeners: "",
+    elevation: "",
+    lat: "",
+    lon: "",
+    weather: ""
   };
 
+
   componentDidMount() {
-    this.loadMountains();
+    this.loadMtsInfo();
   }
 
-  loadMountains = () => {
-    API.getMountains()
+  loadMtsInfo = () => {
+    API.getMtsInfo()
       .then(res =>
-        this.setState({ mountains: res.data, mtranges: "", fourteeners: ""})
+        this.setState({ mtsinfo: res.data, mtranges: "", fourteeners: "", elevation: "", lat: "",lon: "", weather: ""})
       )
       .catch(err => console.log(err));
   };
 
-  deleteMountain = id => {
-    API.deleteMountain(id)
-      .then(res => this.loadMountains())
+  deleteMtInfo = id => {
+    API.deleteMtInfo(id)
+      .then(res => this.loadMtsInfo())
       .catch(err => console.log(err));
   };
 
-  handleInputChange = mountain => {
-    const { name, value } = mountain.target;
+  handleInputChange = mtinfo => {
+    const { name, value } = mtinfo.target;
     this.setState({
       [name]: value
     });
   };
 
-  handleFormSubmit = mountain => {
-    mountain.preventDefault();
+  handleFormSubmit = mtinfo => {
+    mtinfo.preventDefault();
     if (this.state.mtranges && this.state.fourteeners) {
-      API.saveMountain({
+      API.saveMtInfo({
         mtranges: this.state.mtranges,
-        fourteeners: this.state.fourteeners
+        fourteeners: this.state.fourteeners,
+        elevation: this.state.elevation,
+        lat: this.state.lat,
+        lon: this.state.lon,
+        weather: this.state.weather
       })
-        .then(res => this.loadMountains())
+        .then(res => this.loadMtsInfo())
         .catch(err => console.log(err));
     }
   };
@@ -58,18 +70,20 @@ class Mountains extends Component {
         <Row>
           <Col size="md-12">
             <Jumbotron>
-              <h1>14er List</h1>
+              <h1>14ers List</h1>
             </Jumbotron>
-            {this.state.mountains.length ? (
+            {this.state.mtsinfo.length ? (
               <List>
-                {this.state.mountains.map(mountain => (
-                  <ListItem key={mountain._id}>
-                    <Link to={"/mountains/" + mountain._id}>
+                {this.state.mtsinfo.map(mtinfo => (
+                  <ListItem key={mtinfo._id}>
+                   
                       <strong>
-                        Mountain Range: {mountain.mtranges} <br /> 14ner: {mountain.fourteeners}
+                        Mountain Range: {mtinfo.mtranges} <br /> 
+                        14ner: {mtinfo.fourteeners} <br />
                       </strong>
+                      <Link to={"/mtsinfo/" + mtinfo._id}>More Details
                     </Link>
-                    <DeleteBtn onClick={() => this.deleteMountain(mountain._id)} />
+                    <DeleteBtn onClick={() => this.deleteMtInfo(mtinfo._id)} />
                   </ListItem>
                 ))}
               </List>

@@ -8,8 +8,8 @@ class Detail extends Component {
   state = {
     event: {}
   };
-  // When this component mounts, grab the book with the _id of this.props.match.params.id
-  // e.g. localhost:3000/books/599dcb67f0f16317844583fc
+  // When this component mounts, grab the mountain with the _id of this.props.match.params.id
+  // e.g. localhost:3000/mountains/599dcb67f0f16317844583fc
   componentDidMount() {
     API.getEvent(this.props.match.params.id)
       .then(res => this.setState({ event: res.data }))
@@ -25,18 +25,19 @@ class Detail extends Component {
               <h1>{this.state.event.title}</h1>
             </Jumbotron>
           </Col>
-        </Row>
+      </Row>
 
-        <Row>
+       
         <Jumbotron>
-          <Col size="md-6">   
+          <Row>
+          <Col size="md-12 centered">   
+          <Col size="md-6"> 
               <h3>Description:</h3>
               <p>{this.state.event.description}</p>
               <h3>Mountain:</h3>
               <p>{this.state.event.fourtennerSelected}</p>
               <h3>Time/ Date:</h3>
-              <p>{this.state.event.date}</p>
-              <p>{this.state.event.time}</p>
+              <p>{this.state.event.date} at  {this.state.event.time}</p>
           </Col>
 
           <Col size="md-6"> 
@@ -46,9 +47,12 @@ class Detail extends Component {
               <p>{this.state.event.contactInfo}</p>
               <h3>Meeting Point:</h3>
               <p>{this.state.event.meetingPoint}</p>
+             
           </Col>
+          </Col>
+          </Row>
         </Jumbotron>
-        </Row>
+       
 
         <Row>
           <Col size="md-2">

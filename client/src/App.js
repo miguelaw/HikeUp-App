@@ -34,8 +34,8 @@ const App = () => (
         <Route exact path="/events" component={Events} />
         <Route exact path="/create-events" component={CreateEvents} />
         <Route exact path="/events/:id" component={Detail} />
-        <Route exact path="/mountains" component={Mountains} />
-        <Route exact path="/mountains/:id" component={MountainsDetail} />
+        <Route exact path="/mtsinfo" component={Mountains} />
+        <Route exact path="/mtsinfo/:id" component={MountainsDetail} />
         <Route component={NoMatch} />
       </Switch>
     </div>

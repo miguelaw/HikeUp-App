@@ -1,4 +1,5 @@
 module.exports = {
   Event: require("./event"),
-  Mountain: require("./mountain")
+  Mountain: require("./mountain"),
+  Mtinfo: require("./mtinfo")
 };

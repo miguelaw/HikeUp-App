@@ -33,7 +33,7 @@ const NavigationAuth = () =>
       <button><a className="nav-item nav-link" href="/account">Account</a></button>
       <button><a className="nav-item nav-link" href="/events">Events</a></button>
       <button><a className="nav-item nav-link" href="/create-events">Create Event</a></button>
-      <button><a className="nav-item nav-link" href="/mountains">Mountains</a></button>
+      <button><a className="nav-item nav-link" href="/mtsinfo">Mountains</a></button>
       <SignOutButton />
     </div>
   </div>
